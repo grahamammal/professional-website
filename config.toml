@@ -15,7 +15,7 @@ googleAnalytics = ""
   description = "The portfolio of Ellen Graham"
   copyright = "&copy;2019 Ellen Graham"
   sidebarAbout = [
-    "data science extraordinare",
+    "Statistics and Computer Science student at Macalester College",
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
@@ -53,6 +53,6 @@ googleAnalytics = ""
 
   [params.social]
   email         = "ellen.graham.403@gmail.com"
-  linkedin      = "https://www.linkedin.com/in/ellen-graham-179744190/"
+  # linkedin      = "https://www.linkedin.com/in/ellen-graham-179744190/"
   github        = "https://github.com/grahamammal"
-  twitter       = "https://twitter.com/e_s_graham"
+  # twitter       = "https://twitter.com/e_s_graham"
