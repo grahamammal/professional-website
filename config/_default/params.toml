@@ -75,7 +75,7 @@ privacy_pack = false
 
 # Enable visitors to edit pages?
 #   `repo` defines the repository URL. `editable` defines which page types can be edited.
-edit_page = {repo_url = "https://github.com/gcushen/hugo-academic", repo_branch = "master", editable = {docs = true, page = false, post = false}}
+edit_page = {}
 
 ############################
 ## Contact details
@@ -139,14 +139,14 @@ gravatar = false
 menu_align_right = false
 
 # Show estimated reading time for posts? (true/false)
-reading_time = true
+reading_time = false
 
 # Display next/previous section pager? (true/false)
 section_pager = false
 docs_section_pager = true  # Display pager in Docs layout (e.g. tutorials)?
 
 # Enable in-built social sharing buttons? (true/false)
-sharing = true
+sharing = false
 
 # Link authors to their profile page? (true/false)
 link_authors = true
@@ -206,7 +206,7 @@ plugins_js  = []
   #   0: No search engine
   #   1: Academic (built-in)
   #   2: Algolia (https://www.algolia.com)
-  engine = 1
+  engine = 0
 
   # Configuration of Algolia search engine.
   # Paste the values from your Algolia dashboard.
@@ -217,31 +217,31 @@ plugins_js  = []
     show_logo = false
 
 
-    ############################
-    ## Maps
-    ############################
-    [map]
-      # To show your address on a map in the Contact widget, enter your latitude and longitude (above)
-      # and choose a map provider below.
-      #
-      # To use Google Maps, set `engine` to 1 and enter your API key that can be obtained here:
-      #   https://developers.google.com/maps/documentation/javascript/get-api-key
-      # To use OpenStreetMap tiles, set `engine` to 2.
-      # To use OpenStreetMap on a high traffic site, set `engine` to 3 and enter your API key that can be obtained here:
-      #   https://www.mapbox.com/studio/account/tokens
-      #
-      # Map provider:
-      #   0: No map
-      #   1: Google Maps
-      #   2: OpenStreetMap (Mapnik)
-      #   3: OpenStreetMap (Mapbox)
-      engine = 0
-      api_key = ""
-      zoom = 15
+############################
+## Maps
+############################
+[map]
+  # To show your address on a map in the Contact widget, enter your latitude and longitude (above)
+  # and choose a map provider below.
+  #
+  # To use Google Maps, set `engine` to 1 and enter your API key that can be obtained here:
+  #   https://developers.google.com/maps/documentation/javascript/get-api-key
+  # To use OpenStreetMap tiles, set `engine` to 2.
+  # To use OpenStreetMap on a high traffic site, set `engine` to 3 and enter your API key that can be obtained here:
+  #   https://www.mapbox.com/studio/account/tokens
+  #
+  # Map provider:
+  #   0: No map
+  #   1: Google Maps
+  #   2: OpenStreetMap (Mapnik)
+  #   3: OpenStreetMap (Mapbox)
+  engine = 0
+  api_key = ""
+  zoom = 15
 
-    ############################
-    ## Marketing
-    ############################
-    [marketing]
-      google_analytics = ""
-      google_tag_manager = ""
+############################
+## Marketing
+############################
+[marketing]
+  google_analytics = ""
+  google_tag_manager = ""
