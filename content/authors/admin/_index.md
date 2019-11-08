@@ -41,9 +41,6 @@ social:
 - icon: envelope
   icon_pack: fas
   link: 'mailto:ellen.graham.403@gmail.com'  # For a direct email link, use "mailto:test@example.org".
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/e_s_graham
 
 - icon: github
   icon_pack: fab
