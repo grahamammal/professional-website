@@ -34,3 +34,9 @@ A GitHub mirror of the project can be found [here](https://github.com/heggesethl
 I learned how to write shiny apps for this project, as well as diving deep into the statistical literature searching for methods, then trying to find packages that implemented those methods. A full list of the methods we integrated into our app can be found on the front page of the app, but they included chi-squared distance, optimal matching distance, and mixtures of markov models.
 
 Above is an example output of a dissimilarity matrix, which shows how different elements in different clusters are from each other (yellow more different).
+
+Below is the poster we created to present our work to other students and professors at Macalester.
+
+![Poster For Project](/img/cluster_long_cat_poster.jpg)
+
+A pdf can be downloaded [here](/files/cluster_long_cat_poster.pdf)
