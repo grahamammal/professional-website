@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>        
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+    <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    <script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+    <script src="https://d3js.org/d3-scale.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <script src="leaflet.active-layers.min.js"></script>
+    <script src="leaflet.select-layers.min.js"></script>
+    <script src="d3.color-legend.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        #mapid { height: 100%;
+                 width: 100%; 
+                 position: absolute;
+                 top: 0;
+                 left: 0;}
+        #legend{ position: absolute;
+                 bottom: 0px;
+                 left: 0px;
+                 height: 90px;
+                 width: 350px;
+                 z-index: 500;
+                 pointer-events: none;
+                 padding: 0px;}
+
+        #display-var-holder{ position: absolute;
+                             z-index: 500;
+                             padding: 0px;
+                             right: 20px;
+                             top: 20px;}
+
+        #visualization{ height: 100%;
+                        width: 100%;
+                        position: relative;}
+
+        g.legend-scale text{
+            font-family: 'Roboto', sans-serif;
+            fill:#777;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        g.tick text{
+            font-size: 11px;
+        }
+
+        g.tick line{
+            stroke: #777;
+        }
+
+        #legend-background{ fill: #F7F6F1;
+                            opacity: .7;
+                            stroke: #C0C0C0;
+                            stroke-width: 3px;}
+
+        #layer-selection{
+            position: absolute;
+            font-family: 'Roboto', sans-serif;
+            top: 20px;
+            right: 20px;
+            z-index: 500;
+        }
+
+        html, body {
+            height: 100%;
+        }
+        body{
+            margin-top: 0px; 
+            margin-bottom: 0px; 
+            margin-left: 0px; 
+            margin-right: 0px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id = "visualization">
+    <div id = "display-var-holder">
+        <select form="display-var" id="display-var" autofocus> 
+            <option value="alt">Altitude</option> 
+            <option value="speed">Speed</option> 
+            <option value="heading" selected>Heading</option> 
+            <option value="climb">Climb</option> 
+            <option value="accel_x">X Acceleration</option>
+            <option value="accel_y">Y Acceleration</option> 
+            <option value="accel_z">Z Acceleration</option> 
+            <option value="gyro_x">X Gyroscope</option> 
+            <option value="gyro_y">Y Gyroscope</option> 
+            <option value="gyro_z">Z Gyroscope</option> 
+            <option value="air_tmp">Air Temperature</option> 
+            <option value="air_gas">VOCs</option> 
+            <option value="air_hmd">Air Humidity</option> 
+            <option value="ar_prss">Air Pressure</option> 
+            <option value="wtr_tmp">Water Temperature</option> 
+        </select> 
+    </div>
+    <div id="legend"></div>
+    <div id="mapid"></div>
+
+</div>
+
+<script>
+
+    var colorScale = d3.scaleSequential(d3.interpolateViridis)
+        .domain([0, 360]);   
+
+    var var_extent = {
+        "alt":[-100,500],
+        "speed":[0,4.5],
+        "heading":[0,360],
+        "climb":[-2,2],
+        "accel_x":[-10,5],
+        "accel_y":[-5,10],
+        "accel_z":[-2,12],
+        "gyro_x":[-60,20],
+        "gyro_y":[-5,60],
+        "gyro_z":[-15,30],
+        "air_tmp":[0,55],
+        "air_gas":[45000,6000000],
+        "air_hmd":[0,100],
+        "ar_prss":[950,1050],
+        "wtr_tmp":[0,30]
+    };
+
+    var clean_names = {
+        "alt":"Altitude (m)",
+        "speed":"Speed (m/s)",
+        "heading":"Heading (degrees)",
+        "climb":"Climb (m/s)",
+        "accel_x":"X Acceleration (m/s^2)",
+        "accel_y":"Y Acceleration (m/s^2)",
+        "accel_z":"Z Acceleration (m/s^2)",
+        "gyro_x":"X Gyroscope (degrees/s)",
+        "gyro_y":"Y Gyroscope (degrees/s)",
+        "gyro_z":"Z Gyroscope (degrees/s)",
+        "air_tmp":"Air Temperature (C)",
+        "air_gas":"VOCs (Ohm)",
+        "air_hmd":"Air Humidity (%)",
+        "ar_prss":"Air Pressure (hPa)",
+        "wtr_tmp":"Water Temperature (C)"
+    };
+    
+    var sym_log_transform_vars = ["accel_x", "accel_y", "accel_z",
+                                  "gyro_x", "gyro_y", "gyro_z",
+                                  "air_gas"];
+
+    function geojsonMarkerOptions(feature) {
+        return {
+            fillColor: feature.properties.heading == null ? 'grey' : colorScale(feature.properties.heading),
+            radius: 5,
+            opacity: 0,
+            fillOpacity: 0.6      
+        };
+    }
+
+    var geojsonLayer = new L.GeoJSON.AJAX("tiny_legs.geojson", {
+        style: geojsonMarkerOptions,
+        pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng);
+        }
+    });
+
+    var mymap = L.map('mapid').setView([44.9375, -93.2010], 4);
+    geojsonLayer.addTo(mymap);
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+    }).addTo(mymap);
+    
+    const svg = d3.select("#legend").append("svg")
+        .attr("width", "100%")
+        .attr("height", "100%");
+    
+    svg.append("rect")
+        .attr("id", "legend-background")
+        .attr("width", "100%")
+        .attr("height", "100%")
+   
+    d3.select("#display-var").on("input", function() {
+        update(this.value);
+    })
+
+    svg.append("g")
+      .attr("transform", "translate(25,25)")
+      .attr("class", "legend-scale")
+      .append(() => legend({color: colorScale, title: "Heading", width: 300}))
+      .attr("class", "legend-scale");
+
+
+    function update(value) {
+        var newScale = sym_log_transform_vars.includes(value) ?
+                        d3.scaleSequentialSymlog(d3.interpolateViridis).domain(var_extent[value]) :
+                        d3.scaleSequential(d3.interpolateViridis).domain(var_extent[value]);
+
+        function newMarkerStyle(feature) {
+            return {
+                fillColor: feature.properties[value] == null ? 'grey' : newScale(feature.properties[value]),
+                radius: 5,
+                opacity: 0,
+                fillOpacity: 0.6      
+            };
+        }
+
+        d3.select(".legend-scale")
+            .remove()
+        
+        svg.append("g")
+            .attr("transform", "translate(25,25)")
+            .attr("class", "legend-scale")
+            .append(() => legend({color: newScale, title: clean_names[value], width: 300, tickFormat: (value === "air_gas" ? d3.format(".2s") : null), ticks: 4}))
+            .attr("class", "legend-scale");
+
+
+        geojsonLayer.setStyle(newMarkerStyle);
+    }
+
+
+</script>
+
+
+</body>
+</html>
