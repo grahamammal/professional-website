@@ -59,6 +59,6 @@ email: ""
 # - Researchers
 # - Visitors
 ---
-Hello! I'm a junior at [Macalester College](https://www.macalester.edu/) studying for an applied math and statistics and a computer science double major. Recently I've been working on a project to connect statistics students with community organizations to add context and meaning to projects that we do, and having fun meeting highland cows while studying abroad at the [University of St. Andrews](https://www.st-andrews.ac.uk/) in Scotland. Last summer I did research on clustering categorical longitudinal data with one of my professors, [Brianna Heggeseth](https://sites.google.com/macalester.edu/bcheggeseth).
 
-When I'm not studying I love to cook! If you ever meet me make sure ask me to make you something! I may not be a great cook but at least I'm an enthusiastic one!
+I'm a junior at [Macalester College](https://www.macalester.edu/) studying for an applied math and statistics major. This summer, I'm working with the University of Virginia, Arlington in their Data Science for the Public Good Young Scholars Program. I'm working with government and academia to solve social problems using data science techniques. Last summer I did research on clustering categorical longitudinal data with one ,of my professors, [Brianna Heggeseth](https://sites.google.com/macalester.edu/bcheggeseth).
+
