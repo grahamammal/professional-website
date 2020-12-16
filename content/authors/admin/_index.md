@@ -60,5 +60,5 @@ email: ""
 # - Visitors
 ---
 
-I'm a junior at [Macalester College](https://www.macalester.edu/) studying for an applied math and statistics major. This summer, I'm working with the University of Virginia, Arlington in their Data Science for the Public Good Young Scholars Program. I'm working with government and academia to solve social problems using data science techniques. Last summer I did research on clustering categorical longitudinal data with one of my professors [Brianna Heggeseth](https://sites.google.com/macalester.edu/bcheggeseth).
+I'm a senior at [Macalester College](https://www.macalester.edu/) studying for an applied math and statistics major. This past summer, I worked with the University of Virginia, Arlington in their Data Science for the Public Good Young Scholars Program. I worked with government and academia to solve social problems using data science techniques. Right now, I've been working on my statistics honors thesis, focused on extending an existing computationally efficient method for spatial modeling to the temporal domain. 
 
