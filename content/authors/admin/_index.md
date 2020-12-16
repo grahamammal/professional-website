@@ -18,14 +18,8 @@ organizations:
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: I'm interested in data vis and GIS, stats programming, and LGBTQ+ issues.
+bio: I'm interested in computationally efficient statistical methods, spatial statistics, data vis and GIS, and LGBTQ+ issues in STEM.
 
-interests:
-- Data Visualization and GIS
-- Statistical Programming
-- Software Design
-- Environmental & Sustainability Issues
-- LGBTQ+ Issues
 
 education:
   courses:
