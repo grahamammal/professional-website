@@ -27,13 +27,13 @@ By the end of the trip, over 150,000 observations had been recorded. In order to
 I made the following two maps as part of this collaboration in order to understand and learn from this trip. The first uses leaflet and d3 to allow the user to see the values of the sensors at every part of the trip. 
 
 <div height = "600" width = "100%">
-  <iframe height="600" width="100%" src="https://ellengraham.io/miss/dynamic/index.html" scrolling="no" frameborder="0"></iframe>
+  <iframe height="600" width="100%" src="https://ellen-graham.com/miss/dynamic/index.html" scrolling="no" frameborder="0"></iframe>
 </div>
 
 The second allows for an at a glance view of the trip, vertically oriented so you can easily follow the river as it flows to the Gulf of Mexico. 
 
 <div height = "600" width = "100%">
-  <iframe height="600" width="100%" src="https://ellengraham.io/miss/static/index.html" scrolling="no" frameborder="0"></iframe>
+  <iframe height="600" width="100%" src="https://ellen-graham.com/miss/static/index.html" scrolling="no" frameborder="0"></iframe>
 </div>
 
 The code can be found on my github at https://github.com/grahamammal/mississippi_canoe. The repository was created for analysis and is messy, but the code for the maps can be found at [d3_fun/dynamic](https://github.com/grahamammal/mississippi_canoe/tree/master/d3_fun/dynamic) and [d3_fun/static](https://github.com/grahamammal/mississippi_canoe/tree/master/d3_fun/static_map) respectively.  
