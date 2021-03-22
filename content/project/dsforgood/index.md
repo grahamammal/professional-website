@@ -1,5 +1,5 @@
 ---
-title: Data Science for Social Good
+title: Data Science for the Public Good
 summary: Partnering with local governments to help achieve community goals. 
 tags:
 # - Deep Learning
