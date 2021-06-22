@@ -3,7 +3,7 @@ title: Data Science for the Public Good
 summary: Partnering with local governments to help achieve community goals. 
 tags:
 # - Deep Learning
-date: "2019-08-01T00:00:00Z"
+date: "2020-06-01T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""

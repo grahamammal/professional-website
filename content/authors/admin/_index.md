@@ -10,22 +10,26 @@ authors:
 superuser: true
 
 # Role/position
-role: Applied Mathematics and Statistics Student
+role: Biostatistics PhD Student
 
 # Organizations/Affiliations
 organizations:
-- name: Macalester College
+- name: University of Washington
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: I'm interested in computationally efficient statistical methods, spatial statistics, data vis and GIS, and LGBTQ+ issues in STEM.
+bio: I'm interested in causal inference and clinical trials for public health issues.
 
 
 education:
   courses:
-  - course: BA in Applied Mathematics and Statistics
+  - course: PhD, Biostatistics
+    institution: University of Washington
+    year: 2021-2026
+  - course: BA, Applied Mathematics and Statistics
     institution: Macalester College
-    year: 2021
+    year: 2017-2021
+  
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
@@ -54,5 +58,5 @@ email: ""
 # - Visitors
 ---
 
-I'm a senior at [Macalester College](https://www.macalester.edu/) studying for an applied math and statistics major. This past summer, I worked with the University of Virginia, Arlington in their Data Science for the Public Good Young Scholars Program. I worked with government and academia to solve social problems using data science techniques. Right now, I've been working on my statistics honors thesis, focused on extending an existing computationally efficient method for spatial modeling to the temporal domain. 
+I just finished my Bachelor of Arts at [Macalester College](https://www.macalester.edu/) with an applied math and statistics major and a computer science minor. This summer, I'm preparing for beginning the Biostatstics PhD program at the University of Washington in the fall, as well as doing consulting work for local governments and organizations with [David Keyes](https://rfortherestofus.com/author/dgkeyes/) of [R for the Rest of Us](https://rfortherestofus.com/). 
 
