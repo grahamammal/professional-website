@@ -25,7 +25,7 @@ education:
   courses:
   - course: PhD, Biostatistics
     institution: University of Washington
-    year: 2021-2026
+    year: 2021-Present
   - course: BA, Applied Mathematics and Statistics
     institution: Macalester College
     year: 2017-2021
